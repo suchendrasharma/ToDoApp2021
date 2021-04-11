@@ -1,32 +1,30 @@
-<div class="container" data-aos="fade-down" style="width: 1000px;">
-    <div class="row" style="padding: 80px;">
-        <div class=""></div>
-        <!-- <div class=""> -->
-            <div class="card">
+
+            <div class="card" data-aos="fade-down">
                 <div class="card-body">
                     <div class="todo">
 	                    <form (submit)="addTodo()">
                             <div class="form-group">
                             <div class="input-group input-group-lg">
-		                    <input
+		                    <textarea
 			                    type="text"
 			                    name="inputTodo"
 			                    placeholder="Enter todo..."
 			                    class="todo-input form-control"
 			                    [(ngModel)]="inputTodo"
-		                    />
+		                    ></textarea>
                             </div><br>
-		                    <button type="submit" value="Add Todo" class="todo-submit btn btn btn-primary" >ADD TASK</button>
+		                    <button type="submit" value="Add Todo" class="todo-submit btn btn btn-success" >CREATE</button>
                         </div>
-	                    </form>
+	                    </form><br>
 	                        <div *ngFor="let todo of todo; let i = index;" class="todo {{ (todo.completed ? 'done' : '') }}">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
 		                        <div class="id">{{ i }}</div>
 		                        <div class="content" (click)="toggleDone(i)">{{ todo.content }}</div>
-		                        <button class="delete btn btn btn-dark" (click)="deleteTodo(i)">Remove</button>
+                            </div>
+		                        <button class="delete btn btn btn-danger" (click)="deleteTodo(i)">DELETE</button>
+                                <button class="update btn btn-dark" (click)="updateTodo(i)" style="margin-left: 20px;">UPDATE</button>
 	                        </div>
                     </div>
                 </div>
             </div>
-        <!-- </div> -->
-    </div>
-</div>

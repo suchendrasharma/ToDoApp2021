@@ -22,7 +22,7 @@ export class TodoComponent implements OnInit {
   ngOnInit(): void {
 
     Aos.init();
-    
+
     this.todo = [
       {
         content: 'First todo',
@@ -44,6 +44,15 @@ export class TodoComponent implements OnInit {
   }
   deleteTodo (id:number) {
     this.todo = this.todo.filter((v, i) => i !== id);
+  }
+
+  updateTodo (id:number) {
+    // this.todo = this.todo.filter((v, i) => i !== id);
+    this.todo.map((v, i) => {
+      if (i == id) v.completed = !v.completed;
+
+      return v;
+    })
   }
 
   addTodo () {
