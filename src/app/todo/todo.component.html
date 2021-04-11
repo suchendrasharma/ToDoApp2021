@@ -1,0 +1,32 @@
+<div class="container" data-aos="fade-down" style="width: 1000px;">
+    <div class="row" style="padding: 80px;">
+        <div class=""></div>
+        <!-- <div class=""> -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="todo">
+	                    <form (submit)="addTodo()">
+                            <div class="form-group">
+                            <div class="input-group input-group-lg">
+		                    <input
+			                    type="text"
+			                    name="inputTodo"
+			                    placeholder="Enter todo..."
+			                    class="todo-input form-control"
+			                    [(ngModel)]="inputTodo"
+		                    />
+                            </div><br>
+		                    <button type="submit" value="Add Todo" class="todo-submit btn btn btn-primary" >ADD TASK</button>
+                        </div>
+	                    </form>
+	                        <div *ngFor="let todo of todo; let i = index;" class="todo {{ (todo.completed ? 'done' : '') }}">
+		                        <div class="id">{{ i }}</div>
+		                        <div class="content" (click)="toggleDone(i)">{{ todo.content }}</div>
+		                        <button class="delete btn btn btn-dark" (click)="deleteTodo(i)">Remove</button>
+	                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- </div> -->
+    </div>
+</div>
